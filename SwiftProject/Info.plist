@@ -25,7 +25,11 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Se nececita acceder a su ubicacion porque...</string>
+	<string>Se nececita acceder a su ubicacion para mejor desempeño del mapa</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Se necesita acceder a tus imagenes para tu registro</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Se necesita acceder a tus imagenes para tu registro</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

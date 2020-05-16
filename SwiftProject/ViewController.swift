@@ -7,15 +7,54 @@
 //
 
 import UIKit
+import SQLite3
 
 class ViewController: UIViewController {
+    var correo : String = ""
+        
+    var db: OpaquePointer?
+    var stmt: OpaquePointer?
     
     var Reportes = [Reporte]()
     let dataJsonUrlClass = JsonClass()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("BDSQLiteLogin.sqlite")
+        if sqlite3_open(fileUrl.path, &db) != SQLITE_OK {
+            alerta(title: "Error", message: "No se puede acceder a la base de datos")
+            return
+        }else {
+            let tableusuario = "Create Table If Not Exists Usuario(foto Text, nombre Text, email Text Primary Key, fechaN text, sexo text, telefono Text)"
+            if sqlite3_exec(db, tableusuario, nil, nil, nil) != SQLITE_OK {
+                alerta(title: "Error", message: "No se creo Tabla usuairo")
+                return
+            }
+        }
+                let sentencia = "Select email From Usuario"
+                if sqlite3_prepare(db, sentencia, -1, &stmt, nil) != SQLITE_OK {
+                    let error = String(cString: sqlite3_errmsg(db))
+                    alerta(title: "Error", message: "Error \(error)")
+                    return
+                }
+                
+                if sqlite3_step(stmt) == SQLITE_ROW {
+                    let nombre = String(cString: sqlite3_column_text(stmt, 0))
+                    if nombre != "" {
+                        alerta(title: "Hola", message: "Bienvenido \(nombre)")
+                        correo = nombre
+                        
+                        
+                }else {
+                   // alerta(title: "else comparacion ", message: "")
+                        self.performSegue(withIdentifier: "segueRegistro", sender: self)
+                       }
+                }else {
+                   //  alerta(title: "No hay registro", message: "")
+                   self.performSegue(withIdentifier: "segueRegistro", sender: self)
+                }
+        
     }
 
     @IBAction func btnMapa(_ sender: Any) {
@@ -27,7 +66,7 @@ class ViewController: UIViewController {
     @IBAction func btnLista(_ sender: Any) {
         
         Reportes.removeAll()
-                          let correo = "prueba@hotmail.com"
+                          
                           let datos_a_enviar = ["corrUsr": correo] as NSMutableDictionary
                           
                           //ejecutamos la función arrayFromJson con los parámetros correspondientes (url archivo .php / datos a enviar)
@@ -82,11 +121,25 @@ class ViewController: UIViewController {
         }
         else if segue.identifier == "segueExperiencia"{
             let seguex = segue.destination as! ViewControllerExperiencia
+            seguex.correoU = correo
         }
         else if segue.identifier == "segueLista"{
             let seguex = segue.destination as! TableViewControllerExp
             seguex.reportes = Reportes
+                        
         }
+        else if segue.identifier == "segueRegistro" {
+            let seguex = segue.destination as! ViewControllerRegistro
+        }
+    }
+    
+    func alerta (title: String, message: String){
+        //Crea una alerta
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        //Agrega un boton
+        alert.addAction(UIAlertAction(title: "Aceptar",style: UIAlertAction.Style.default, handler: nil))
+        //Muestra la alerta
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

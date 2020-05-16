@@ -103,6 +103,7 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
                         if let msg = diccionario_datos.object(forKey: "message") as! String?{
                             self.alerta(title: "Guardando", message: msg)
                             
+                            
                         }
                         
                         self.txtTitulo.text=""
