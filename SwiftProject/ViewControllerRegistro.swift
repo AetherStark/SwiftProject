@@ -18,6 +18,7 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var txtTelefono: UITextField!
     
     let imagePicker = UIImagePickerController()
+
     var infoIMG: String = ""
     
     let dataJsonUrlClass = JsonClass()
@@ -29,6 +30,7 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         
         imagePicker.delegate = self
+
 
          let fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("BDSQLiteLogin.sqlite")
                if sqlite3_open(fileUrl.path, &db) != SQLITE_OK {
@@ -44,8 +46,10 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func btnCargarCamara(_ sender: Any) {
+        
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .camera
+        
         
         self.present(imagePicker, animated: true, completion: nil)
     }
@@ -60,7 +64,6 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
         let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         imagenUsr?.image = img
         self.dismiss(animated: true, completion: nil)
-        print(img)
         infoIMG = "\(img)"
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -139,7 +142,7 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
                                 
                             }
                             
-                            //self.imagenUsr.image =
+                            
                             self.txtNombre.text=""
                             self.txtCorreo.text=""
                             self.txtFechaN.text=""
@@ -150,12 +153,7 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
                     
                     
                     self.performSegue(withIdentifier: "segueInicio", sender: self)
-                   /* var cont = 0
-                    if cont < 1 {
-                    alerta(title: "Lista muestra tus registros", message: "Antes de acceder a la lista interta un registro")
-                    cont = cont + 1
-                    }*/
-                    
+                  
                 }
             }
         }
@@ -163,8 +161,7 @@ class ViewControllerRegistro: UIViewController, UIImagePickerControllerDelegate,
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "segueInicio" {
-            
+        if segue.identifier == "segueInicio" {
                _ = segue.destination as! ViewController
                 
            }

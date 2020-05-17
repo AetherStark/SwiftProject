@@ -14,7 +14,6 @@
 		3B5CF278246486C5003F5655 /* TableViewCellExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5CF277246486C5003F5655 /* TableViewCellExp.swift */; };
 		3B66B7CB246B3A0B00189868 /* JsonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B66B7CA246B3A0B00189868 /* JsonClass.swift */; };
 		3B66B7CD246B3A4000189868 /* reporte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B66B7CC246B3A4000189868 /* reporte.swift */; };
-		3B66B7CF246B3A5600189868 /* usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B66B7CE246B3A5600189868 /* usuario.swift */; };
 		3B7E9D8A2464A64F009B234F /* Podfile in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E9D892464A64F009B234F /* Podfile */; };
 		9F9C868A24528677005C9903 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9C868924528677005C9903 /* AppDelegate.swift */; };
 		9F9C868C24528677005C9903 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9C868B24528677005C9903 /* ViewController.swift */; };
@@ -32,7 +31,6 @@
 		3B5CF277246486C5003F5655 /* TableViewCellExp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExp.swift; sourceTree = "<group>"; };
 		3B66B7CA246B3A0B00189868 /* JsonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonClass.swift; sourceTree = "<group>"; };
 		3B66B7CC246B3A4000189868 /* reporte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reporte.swift; sourceTree = "<group>"; };
-		3B66B7CE246B3A5600189868 /* usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usuario.swift; sourceTree = "<group>"; };
 		3B7E9D892464A64F009B234F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		7E8641191D542D12C4280ACE /* libPods-SwiftProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F9C868624528677005C9903 /* SwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +91,6 @@
 				3B5CF277246486C5003F5655 /* TableViewCellExp.swift */,
 				3B66B7CA246B3A0B00189868 /* JsonClass.swift */,
 				3B66B7CC246B3A4000189868 /* reporte.swift */,
-				3B66B7CE246B3A5600189868 /* usuario.swift */,
 			);
 			path = SwiftProject;
 			sourceTree = "<group>";
@@ -231,7 +228,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F9C868C24528677005C9903 /* ViewController.swift in Sources */,
-				3B66B7CF246B3A5600189868 /* usuario.swift in Sources */,
 				3B66B7CB246B3A0B00189868 /* JsonClass.swift in Sources */,
 				3B5CF276246486AE003F5655 /* TableViewControllerExp.swift in Sources */,
 				3B5CF2742464868F003F5655 /* ViewControllerExperiencia.swift in Sources */,

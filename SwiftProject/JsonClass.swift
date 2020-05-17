@@ -36,19 +36,7 @@ class JsonClass: NSObject {
                 request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
                 request.httpMethod = "POST"//puede ser GET pero por seguridad siempre sera POST
             
-                /*
-                En las siguientes 4 lineas vamos a concatenar o empujar nuevos valores al array de datos que enviaremos al servidor remoto.
-                NOTA. Aquí puedes concatenar otros valores que consideres necesarios para la solicitud por ejemplo
-                *latitud, longitud y altitud del usuario
-                *fecha local del dispositivo
-                *Medidas de los sensores (Acelerómetro. giroscopio, sensor de luz, etc)
-                
-                datos_enviados["key"] = key
-                datos_enviados["lenguaje"] = langStr
-                datos_enviados["model"] = model
-                datos_enviados["iddevice"] = iddevice
-                datos_enviados["fecha"] = fecha*/
-            
+                           
                 //Convertimos  el array en formato JSON antes de ser enviada
                 request.httpBody = try! JSONSerialization.data(withJSONObject: datos_enviados)
             

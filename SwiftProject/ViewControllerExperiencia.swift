@@ -22,7 +22,7 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
     var longitud: Double = 0.0
     let dateFormatter = DateFormatter()
     var fechaBDD: String = ""
-    var correoU: String = "prueba@hotmail.com"
+    var correoU: String = ""
     
     
     @IBOutlet weak var lblFecha: UILabel!
@@ -47,7 +47,6 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        //locationManager.stopUpdatingLocation()
         dateFormatter.setLocalizedDateFormatFromTemplate("ddMMyy hh:mm:ss")
         
         
@@ -67,7 +66,7 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
             return
         }
         else{
-                //extraemos el valor del campo de texto (ID usuario)
+                
                 let ubi = ubicacion
                 let lati = lblLati.text
                 let longi = lblLong.text
@@ -109,7 +108,7 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
                         self.txtTitulo.text=""
                         self.txtDescripcion.text = ""
                         self.txtPuntuacion.text = "0"
-                        //self.Precio.text = "0"
+                        
                     }
                 }
         }// Fin del else
@@ -168,9 +167,6 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
     
    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //var ubicacion = ""
-       // var fecha: Date
-       
         
         for currentLocation in locations {
             ubicacion = "\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)"
@@ -178,12 +174,10 @@ class ViewControllerExperiencia: UIViewController, CLLocationManagerDelegate{
             longitud = (currentLocation.coordinate.longitude)
             var fecha: Date = currentLocation.timestamp
             fechaBDD = "\(dateFormatter.string(from: fecha))"
-            //fecha = currentLocation.timestamp
-            //print("\(index): \(currentLocation)")
             print("\(currentLocation.timestamp)")
             
             print("\(currentLocation.coordinate.latitude),\(currentLocation.coordinate.longitude)")
-            //lblUbicacion.text = ubicacion
+            
             lblLati.text = String(latitud)
             lblLong.text = String(longitud)
             lblFecha.text = "\(dateFormatter.string(from: fecha))"

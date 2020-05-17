@@ -47,12 +47,11 @@ class ViewController: UIViewController {
                         
                         
                 }else {
-                   // alerta(title: "else comparacion ", message: "")
                         self.performSegue(withIdentifier: "segueRegistro", sender: self)
                        }
                 }else {
-                   //  alerta(title: "No hay registro", message: "")
-                   self.performSegue(withIdentifier: "segueRegistro", sender: self)
+                   
+                        self.performSegue(withIdentifier: "segueRegistro", sender: self)
                 }
         
     }
@@ -104,7 +103,6 @@ class ViewController: UIViewController {
                                       let descripcion = report.object(forKey: "descripcion") as! String?
                                       let titulo = report.object(forKey: "Titulo") as! String?
                                       let puntuacion = report.object(forKey: "puntuacion") as! String?
-                                      //self.Reportes.append(Reporte(idrep: idreporte, ubi: ubicacion, lat: latitud,long: longitud,fecha: fecha,descrip: descripcion,titulo: titulo,puntuacion: puntuacion) )
                                       self.Reportes.append(Reporte(idrep: idreporte, ubi: ubicacion, lat: latitud,long: longitud,fecha: fecha,descrip: descripcion,titulo: titulo,puntuacion: puntuacion))
                                   }
                                 self.performSegue(withIdentifier: "segueLista", sender: self)

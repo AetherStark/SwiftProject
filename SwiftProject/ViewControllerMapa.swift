@@ -32,7 +32,7 @@ class ViewControllerMapa: UIViewController, CLLocationManagerDelegate {
                locationManager.delegate = self
                locationManager.requestWhenInUseAuthorization()
                locationManager.startUpdatingLocation()
-               //locationManager.stopUpdatingLocation()
+
                
         Reportes.removeAll()
                let datos_a_enviar = ["id": ""] as NSMutableDictionary
@@ -72,7 +72,6 @@ class ViewControllerMapa: UIViewController, CLLocationManagerDelegate {
            
         }
         let camera = GMSCameraPosition.camera(withLatitude: Double(Double(latitud)!), longitude: Double(Double(longitud)!), zoom: 6.0)
-        // print(camera)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         self.view.addSubview(mapView)
         

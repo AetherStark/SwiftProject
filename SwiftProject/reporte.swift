@@ -18,9 +18,9 @@ class Reporte	 {
     var descripcion: String?
     var titulo: String?
     var puntuacion: String?
-   // var correoUsr: String?
+   
     
-    init(idrep: String?, ubi: String?, lat: String?,long: String?,fecha: String?,descrip: String?,titulo: String?,puntuacion: String?/*, correo: String?*/) {
+    init(idrep: String?, ubi: String?, lat: String?,long: String?,fecha: String?,descrip: String?,titulo: String?,puntuacion: String?) {
         self.idreporte  = idrep
         self.ubicacion = ubi
         self.latitud = lat
@@ -29,6 +29,6 @@ class Reporte	 {
         self.descripcion = descrip
         self.titulo = titulo
         self.puntuacion = puntuacion
-     //   self.correoUsr = correo
+  
     }
 }
